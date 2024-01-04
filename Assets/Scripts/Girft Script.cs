@@ -34,7 +34,7 @@ public class GirftScript : MonoBehaviour
         {
             return true;
         }
-         return false;
+        return false;
     }
 
     public void PlayAudio()

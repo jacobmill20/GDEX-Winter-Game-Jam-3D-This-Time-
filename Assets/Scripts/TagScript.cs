@@ -10,6 +10,7 @@ public class TagScript : MonoBehaviour
     private bool pickedUp;
     private bool placed;
     private Transform giftPos;
+    private GirftScript gift;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,14 @@ public class TagScript : MonoBehaviour
     public void PickupTag()
     {
         pickedUp = true;
-        placed = false;
+
+        //Remove tag from gift
+        if (placed)
+        {
+            gift.currentTag = null;
+            gift = null;
+            placed = false;
+        }
     }
 
     public void PutDownTag()
@@ -55,6 +63,7 @@ public class TagScript : MonoBehaviour
         }
         else if (placed)
         {
+            //Make the tag move with the gift
             transform.position = giftPos.position;
             transform.rotation = giftPos.localRotation;
         }
@@ -79,6 +88,12 @@ public class TagScript : MonoBehaviour
         {
             //find the tag point of the gift
             giftPos = hitInfo.collider.gameObject.transform.GetChild(0).Find("Tag Point").transform;
+
+            //Set tag as gift's current tag
+            gift = hitInfo.collider.gameObject.GetComponent<GirftScript>();
+            gift.currentTag = gameObject.transform.parent.gameObject;
+
+            //Set Placed
             placed = true;
         }
     }
