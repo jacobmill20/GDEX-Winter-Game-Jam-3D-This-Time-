@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 public class GirftScript : MonoBehaviour
 {
     public GameObject currentTag;
+    public GameObject correctTag;
+    public string color;
 
-    [SerializeField] private GameObject correctTag;
     private Animator myAnim;
     private AudioSource myAudio;
 

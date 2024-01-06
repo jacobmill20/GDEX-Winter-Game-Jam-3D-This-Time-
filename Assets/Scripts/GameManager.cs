@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> gifts;
-    public List<Material> giftMaterials;
+    //I was gonna use a dictionary for this but apparently they cant be serialized
+    public List<GiftMaterials> giftMaterials;
     public List<Material> bowMaterials;
+
+    private List<GameObject> randomizationGiftList = new List<GameObject>();
+    private List<GameObject> finalGiftList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +21,7 @@ public class GameManager : MonoBehaviour
             Generate the random and sets values in place before the game starts
             Possibly do black screen for a couple seconds to allow the game to process and begin
          */
-        StartCoroutine(GeneratePresents());
+        GeneratePresents();
     }
 
     // Update is called once per frame
@@ -25,7 +30,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator GeneratePresents()
+    private void GeneratePresents()
     {
         /*
          Use random to pick a tag from the list
@@ -33,11 +38,29 @@ public class GameManager : MonoBehaviour
 
          **I DONT KNOW WHAT THE LOGIC IS FOR HOW THE GIFTS ARE ASSIGNED FROM THE KIDS LISTS OR HOW THAT'S GOING TO BE DISPLAYED**
          */
-        
+        RandomizeGifts();
+
+
         //Assign Tag to Present
 
         //Start Game
-        yield return null;
+    }
+
+    private void RandomizeGifts()
+    {
+        randomizationGiftList = new List<GameObject>(gifts);
+        int rand;
+        //Loop through remaining gifts in the list until the final list has 3
+        while(finalGiftList.Count < 3)
+        {
+            rand = UnityEngine.Random.Range(0, randomizationGiftList.Count);
+            if (!finalGiftList.Contains(randomizationGiftList[rand]))
+            {
+                //Add to final gift list and remove from randomization list
+                finalGiftList.Add(randomizationGiftList[rand]);
+                randomizationGiftList.RemoveAt(rand);
+            }
+        }
     }
 
     public void CheckCorrect()
@@ -64,4 +87,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Correct");
     }
+}
+
+//Creating this since we cant serialize Dictonaries for some reason
+[Serializable]
+public class GiftMaterials
+{
+    public string color;
+    public Material material;
 }

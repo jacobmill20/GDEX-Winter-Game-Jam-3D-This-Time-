@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4373381, g: 0.48511744, b: 0.5653905, a: 1}
+  m_IndirectSpecularColor: {r: 0.43733823, g: 0.48511744, b: 0.56538975, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -298,6 +298,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &169387059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c4009dfb170167a44bbcd9c6e196d8af, type: 3}
+  m_PrefabInstance: {fileID: 502045407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &267781867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6464012493987574853, guid: 59816fa4ea88b5f47a1d8dc12082a17f, type: 3}
@@ -364,6 +369,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9c9a6ab6a28244d8738c386ea6e789, type: 3}
+--- !u!1 &484904272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe9c9a6ab6a28244d8738c386ea6e789, type: 3}
+  m_PrefabInstance: {fileID: 474314008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &502045407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -944,6 +954,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1297692447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b641f7210d97844486ffd01f929a7ae, type: 3}
+  m_PrefabInstance: {fileID: 7416853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601429105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7640665408499015289, guid: ac0ba018b3914eb4d95e26f6aa641c2d, type: 3}
@@ -980,13 +995,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gifts:
   - {fileID: 267781867}
+  - {fileID: 1297692447}
+  - {fileID: 484904272}
+  - {fileID: 169387059}
   giftMaterials:
-  - {fileID: 2100000, guid: 82e47bcceda39c645b5d22e590ca4209, type: 2}
-  - {fileID: 2100000, guid: fcd314ff771b93146abde5a4b2c18251, type: 2}
-  - {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
-  - {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
-  - {fileID: 2100000, guid: d98e9cf7f4adb0e44ae44f48cb3aab5a, type: 2}
-  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  - color: Blue
+    material: {fileID: 2100000, guid: 82e47bcceda39c645b5d22e590ca4209, type: 2}
+  - color: Green
+    material: {fileID: 2100000, guid: fcd314ff771b93146abde5a4b2c18251, type: 2}
+  - color: Orange
+    material: {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
+  - color: Pink
+    material: {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  - color: Purple
+    material: {fileID: 2100000, guid: d98e9cf7f4adb0e44ae44f48cb3aab5a, type: 2}
+  - color: Yellow
+    material: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
   bowMaterials:
   - {fileID: 2100000, guid: 8de24dbacc7a9ad4c9fc7df7dca8d8a0, type: 2}
   - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
