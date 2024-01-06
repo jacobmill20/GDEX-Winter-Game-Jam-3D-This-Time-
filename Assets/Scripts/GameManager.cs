@@ -73,14 +73,14 @@ public class GameManager : MonoBehaviour
             randBow = UnityEngine.Random.Range(0, bowMaterials.Count);
             if (!selectedColors.Contains(giftMaterials[randColor].material))
             {
-                gift.GetComponent<GirftScript>().color = giftMaterials[randColor].color;
-                gift.GetComponent<GirftScript>().giftMaterial = giftMaterials[randColor].material;
+                gift.GetComponent<GiftScript>().color = giftMaterials[randColor].color;
+                gift.GetComponent<GiftScript>().giftMaterial = giftMaterials[randColor].material;
             }
             if (!selectedBows.Contains(bowMaterials[randBow]))
             {
-                gift.GetComponent<GirftScript>().bowMaterial = bowMaterials[randBow];
+                gift.GetComponent<GiftScript>().bowMaterial = bowMaterials[randBow];
             }
-            gift.GetComponent<GirftScript>().LoadColor();
+            gift.GetComponent<GiftScript>().LoadColor();
         }
     }
 
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         //Check each gift to see if it is correct
         foreach (GameObject gift in gifts)
         {
-            if (!gift.GetComponent<GirftScript>().IsCorrect())
+            if (!gift.GetComponent<GiftScript>().IsCorrect())
             {
                 Bad();
                 return;

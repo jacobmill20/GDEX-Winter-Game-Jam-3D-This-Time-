@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GirftScript : MonoBehaviour
+public class GiftScript : MonoBehaviour
 {
     public GameObject currentTag;
     public GameObject correctTag;

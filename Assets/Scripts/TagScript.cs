@@ -10,7 +10,7 @@ public class TagScript : MonoBehaviour
     private bool pickedUp;
     private bool placed;
     private Transform giftPos;
-    private GirftScript gift;
+    private GiftScript gift;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +90,7 @@ public class TagScript : MonoBehaviour
             giftPos = hitInfo.collider.gameObject.transform.GetChild(0).Find("Tag Point").transform;
 
             //Set tag as gift's current tag
-            gift = hitInfo.collider.gameObject.GetComponent<GirftScript>();
+            gift = hitInfo.collider.gameObject.GetComponent<GiftScript>();
             gift.currentTag = gameObject.transform.parent.gameObject;
 
             //Set Placed
