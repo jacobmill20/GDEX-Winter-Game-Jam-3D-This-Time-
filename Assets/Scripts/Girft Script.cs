@@ -7,10 +7,17 @@ public class GirftScript : MonoBehaviour
 {
     public GameObject currentTag;
     public GameObject correctTag;
-    public string color;
+    [HideInInspector] public Material giftMaterial;
+    [HideInInspector] public Material bowMaterial;
+    [HideInInspector] public string color;
+
+    [SerializeField] List<GameObject> GiftMaterialZones;
+    [SerializeField] List<GameObject> BowMaterialZones;
+
 
     private Animator myAnim;
     private AudioSource myAudio;
+    
 
     private void Awake()
     {
@@ -18,15 +25,16 @@ public class GirftScript : MonoBehaviour
         myAudio = GetComponent<AudioSource>();
     }
 
-    void Start()
+    public void LoadColor()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (GameObject zone in GiftMaterialZones)
+        {
+            zone.GetComponent<MeshRenderer>().material = giftMaterial;
+        }
+        foreach (GameObject zone in BowMaterialZones)
+        {
+            zone.GetComponent<MeshRenderer>().material = bowMaterial;
+        }
     }
 
     public bool IsCorrect()
