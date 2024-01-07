@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82e47bcceda39c645b5d22e590ca4209, type: 2}
+  - {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -384,9 +384,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTag: {fileID: 0}
   correctTag: {fileID: 0}
-  giftMaterial: {fileID: 2100000, guid: 82e47bcceda39c645b5d22e590ca4209, type: 2}
-  bowMaterial: {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
-  color: Blue
+  isColorGift: 0
+  giftName: Ball
+  giftMaterial: {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  color: Pink
   GiftMaterialZones:
   - {fileID: 1278681160419182781}
   BowMaterialZones:
@@ -485,7 +487,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -604,7 +606,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

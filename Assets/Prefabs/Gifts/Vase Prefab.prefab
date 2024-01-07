@@ -263,7 +263,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  - {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -585,10 +585,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTag: {fileID: 0}
-  correctTag: {fileID: 0}
-  giftMaterial: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  correctTag: {fileID: 7545084753495977564, guid: 405c1f848ade77943ba927c77d9dc799, type: 3}
+  isColorGift: 0
+  giftName: Vase
+  giftMaterial: {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
   bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
-  color: Yellow
+  color: Orange
   GiftMaterialZones:
   - {fileID: 4517876175319313367}
   BowMaterialZones:

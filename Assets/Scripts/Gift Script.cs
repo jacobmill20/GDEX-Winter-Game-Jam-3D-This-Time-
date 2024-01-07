@@ -7,6 +7,8 @@ public class GiftScript : MonoBehaviour
 {
     public GameObject currentTag;
     public GameObject correctTag;
+    public bool isColorGift;
+    public string giftName;
     [HideInInspector] public Material giftMaterial;
     [HideInInspector] public Material bowMaterial;
     [HideInInspector] public string color;
