@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class GameManager : MonoBehaviour
     public List<GiftMaterials> giftMaterials;
     public List<Material> bowMaterials;
 
+    public List<TagStuct> tags;
+
     private List<GameObject> randomizationGiftList = new List<GameObject>();
     private List<GameObject> finalGiftList = new List<GameObject>();
 
     private List<Material> selectedColors = new List<Material>();
     private List<Material> selectedBows = new List<Material>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -86,13 +90,17 @@ public class GameManager : MonoBehaviour
 
     private void PlaceGifts()
     {
-        finalGiftList[0].transform.position = new Vector3(-20f, 0f, -3f);
-        finalGiftList[1].transform.position = new Vector3(0f, 0f, -3f);
-        finalGiftList[2].transform.position = new Vector3(20f, 0f, -3f);
+        //finalGiftList[0].transform.position = new Vector3(-20f, 0f, -3f);
+        //finalGiftList[1].transform.position = new Vector3(0f, 0f, -3f);
+        //finalGiftList[2].transform.position = new Vector3(20f, 0f, -3f);
+
+        Instantiate(finalGiftList[0], new Vector3(-20f, 0f, -3f), Quaternion.identity);
+        Instantiate(finalGiftList[1], new Vector3(0f, 0f, -3f), Quaternion.identity);
+        Instantiate(finalGiftList[2], new Vector3(20f, 0f, -3f), Quaternion.identity);
 
         //I know this part is scuf
         //fixing placement for certain items
-        if(finalGiftList[0] == gifts[4])
+        /*if(finalGiftList[0] == gifts[4])
         {
             finalGiftList[0].transform.position = new Vector3(-17f, 0f, -3f);
         }
@@ -102,7 +110,7 @@ public class GameManager : MonoBehaviour
             {
                 gift.transform.Translate(new Vector3(0f, 1.5f, 0f));
             }
-        }
+        }*/
     }
 
     public void CheckCorrect()
@@ -138,4 +146,11 @@ public class GiftMaterials
     public string color;
     public Material material;
 
+}
+
+[Serializable]
+public class TagStuct
+{
+    public GameObject tag;
+    public GameObject letter;
 }
