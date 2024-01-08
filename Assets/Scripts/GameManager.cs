@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public Slider timeSlider;
 
     public List<GameObject> gifts;
-    //I was gonna use a dictionary for this but apparently they cant be serialized
     public List<GiftMaterials> giftMaterials;
     public List<Material> bowMaterials;
 
@@ -105,6 +104,7 @@ public class GameManager : MonoBehaviour
         finalGiftList.Clear();
         randomizationTagList.Clear();
         finalTagList.Clear();
+        randomizationColorList.Clear();
     }
 
     private void RandomizeGifts()
@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
 
         pageIdx = 0;
         butt1.interactable = false;
+        butt2.interactable = true;
     }
 
     private void RandomizeLetter(int idx)
