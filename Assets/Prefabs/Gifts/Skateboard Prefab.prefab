@@ -417,9 +417,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: Skateboard
-  giftMaterial: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  giftMaterial: {fileID: 2100000, guid: d98e9cf7f4adb0e44ae44f48cb3aab5a, type: 2}
   bowMaterial: {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
-  color: Yellow
+  color: Purple
   GiftMaterialZones:
   - {fileID: 8245957905025735555}
   BowMaterialZones:
@@ -486,7 +486,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  - {fileID: 2100000, guid: d98e9cf7f4adb0e44ae44f48cb3aab5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -11,6 +11,12 @@ public class GameManager : MonoBehaviour
     public Canvas canvas;
     public AudioClip correct;
     public AudioClip incorrect;
+    public AudioClip pageTurn;
+
+    public float gameTime;
+    public float reward;
+    public float penalty;
+    public Slider timeSlider;
 
     public List<GameObject> gifts;
     //I was gonna use a dictionary for this but apparently they cant be serialized
@@ -19,11 +25,13 @@ public class GameManager : MonoBehaviour
 
     public List<TagStuct> tags;
 
+    public Button butt1;
+    public Button butt2;
+
     private List<GameObject> randomizationGiftList = new List<GameObject>();
     private List<GameObject> finalGiftList = new List<GameObject>();
 
-    private List<Material> selectedColors = new List<Material>();
-    private List<Material> selectedBows = new List<Material>();
+    private List<GiftMaterials> randomizationColorList = new List<GiftMaterials>();
 
     private List<TagStuct> randomizationTagList = new List<TagStuct>();
     private List<TagStuct> finalTagList = new List<TagStuct>();
@@ -33,7 +41,10 @@ public class GameManager : MonoBehaviour
     private GameObject[] letterClones = new GameObject[3];
 
     private AudioSource myAudio;
+    private int pageIdx;
 
+    private float timeLeft;
+    private int score;
 
     private void Awake()
     {
@@ -49,13 +60,26 @@ public class GameManager : MonoBehaviour
             Generate the random and sets values in place before the game starts
             Possibly do black screen for a couple seconds to allow the game to process and begin
          */
+        timeLeft = gameTime;
+
         StartCoroutine("GeneratePresents");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateTime();
+    }
+
+    private void UpdateTime()
+    {
+        timeLeft -= Time.deltaTime;
+        timeSlider.value = timeLeft / gameTime;
+
+        if(timeLeft <= 0)
+        {
+            //Lose game
+        }
     }
 
     IEnumerator GeneratePresents()
@@ -91,49 +115,27 @@ public class GameManager : MonoBehaviour
         }
         foreach(GameObject gift in finalGiftList)
         {
+            randomizationColorList = new List<GiftMaterials>(giftMaterials);
+            
             //Randomize color
-            randColor = UnityEngine.Random.Range(0, giftMaterials.Count);
+            randColor = UnityEngine.Random.Range(0, randomizationColorList.Count);
+            gift.GetComponent<GiftScript>().color = randomizationColorList[randColor].color;
+            gift.GetComponent<GiftScript>().giftMaterial = randomizationColorList[randColor].material;
+            randomizationColorList.RemoveAt(randColor);
+
+            //Randomize bow
             randBow = UnityEngine.Random.Range(0, bowMaterials.Count);
-            if (!selectedColors.Contains(giftMaterials[randColor].material))
-            {
-                gift.GetComponent<GiftScript>().color = giftMaterials[randColor].color;
-                gift.GetComponent<GiftScript>().giftMaterial = giftMaterials[randColor].material;
-            }
-            if (!selectedBows.Contains(bowMaterials[randBow])) //same goes here
-            {
-                gift.GetComponent<GiftScript>().bowMaterial = bowMaterials[randBow];
-            }
+            gift.GetComponent<GiftScript>().bowMaterial = bowMaterials[randBow];
             gift.GetComponent<GiftScript>().LoadColor();
         }
     }
 
     private void PlaceGifts()
     {
-        //finalGiftList[0].transform.position = new Vector3(-20f, 0f, -3f);
-        //finalGiftList[1].transform.position = new Vector3(0f, 0f, -3f);
-        //finalGiftList[2].transform.position = new Vector3(20f, 0f, -3f);
         Shuffle();
-
-
         giftClones[0] = Instantiate(finalGiftList[0], new Vector3(-11.51f, 0f, -0.76f), Quaternion.identity);
         giftClones[1] = Instantiate(finalGiftList[1], new Vector3(9.09f, 0f, 0.42f), Quaternion.identity);
         giftClones[2] = Instantiate(finalGiftList[2], new Vector3(-9.57f, 0f, -13.97f), Quaternion.identity);
-
-        //I know this part is scuf
-        //fixing placement for certain items
-        /*if(finalGiftList[0] == gifts[4])
-        {
-            finalGiftList[0].transform.position = new Vector3(-17f, 0f, -3f);
-        }
-        foreach(GameObject gift in finalGiftList)
-        {
-            if(gift == gifts[1])
-            {
-                gift.transform.Translate(new Vector3(0f, 1.5f, 0f));
-            }
-        }*/
-
-        //I think if we push one gift down closer to the player we can avoid having to move them around hopefully
     }
 
     private void AssignTags()
@@ -152,10 +154,13 @@ public class GameManager : MonoBehaviour
             RandomizeLetter(i);
 
             //Assign correct tag. Must instantiate first becase prefab =/= clone of prefab
-            GameObject clone = Instantiate(finalTagList[i].tag, new Vector3(5f, 0f, -10f - 3f * i), Quaternion.Euler(0f, 180f, 0f));
+            GameObject clone = Instantiate(finalTagList[i].tag, new Vector3(1f + 7f * i, 0f, -13f), Quaternion.Euler(0f, 180f, 0f));
             finalGiftList[i].GetComponent<GiftScript>().correctTag = clone;
             tagClones[i] = clone;
         }
+
+        pageIdx = 0;
+        butt1.interactable = false;
     }
 
     private void RandomizeLetter(int idx)
@@ -163,6 +168,8 @@ public class GameManager : MonoBehaviour
         //Instantiate
         GameObject letter = Instantiate(finalTagList[idx].letter, canvas.transform);
         letterClones[idx] = letter;
+        if(idx > 0)
+            letter.SetActive(false);
 
         //Get text children
         Text[] list = letter.GetComponentsInChildren<Text>();
@@ -248,7 +255,17 @@ public class GameManager : MonoBehaviour
         foreach (GameObject gift in giftClones)
         {
             gift.GetComponent<Animator>().SetTrigger("Shake");
-            myAudio.clip = (gift.GetComponent<GiftScript>().IsCorrect()) ? correct : incorrect;
+            if (gift.GetComponent<GiftScript>().IsCorrect())
+            {
+                myAudio.clip = correct;
+                timeLeft += reward;
+                score++;
+            }
+            else
+            {
+                myAudio.clip = incorrect;
+                timeLeft -= penalty;
+            }
             myAudio.Play();
             yield return new WaitForSeconds(0.5f);
         }
@@ -257,12 +274,40 @@ public class GameManager : MonoBehaviour
         for(int i = 0;i < giftClones.Length;i++)
             giftClones[i].GetComponent<GiftScript>().MakeLikeATree();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
         DestroyTags();
 
         //Start again
         StartCoroutine(GeneratePresents());
+    }
+
+    public void ProgressPage()
+    {
+        letterClones[pageIdx].SetActive(false);
+        letterClones[++pageIdx].SetActive(true);
+
+        if(pageIdx + 2 > letterClones.Length)
+            butt2.interactable = false;
+        else 
+            butt1.interactable = true;
+
+        myAudio.clip = pageTurn;
+        myAudio.Play();
+    }
+
+    public void RegressPage()
+    {
+        letterClones[pageIdx].SetActive(false);
+        letterClones[--pageIdx].SetActive(true);
+
+        if (pageIdx - 1 < 0)
+            butt1.interactable = false;
+        else
+            butt2.interactable = true;
+
+        myAudio.clip = pageTurn;
+        myAudio.Play();
     }
 }
 

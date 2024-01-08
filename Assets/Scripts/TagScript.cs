@@ -64,8 +64,11 @@ public class TagScript : MonoBehaviour
         else if (placed)
         {
             //Make the tag move with the gift
-            transform.position = giftPos.position;
-            transform.rotation = giftPos.localRotation;
+            if (gift != null)
+            {
+                transform.position = giftPos.position;
+                transform.rotation = giftPos.localRotation;
+            }
         }
         else
         {
