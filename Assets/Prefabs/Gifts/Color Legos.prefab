@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -341,7 +341,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   isColorGift: 1
   giftName: Legos
   giftMaterial: {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
-  bowMaterial: {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   color: Orange
   GiftMaterialZones:
   - {fileID: 2718131537324480346}

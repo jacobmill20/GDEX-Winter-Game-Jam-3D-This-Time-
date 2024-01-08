@@ -287,9 +287,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: Whoopee
-  giftMaterial: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
-  bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
-  color: Yellow
+  giftMaterial: {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  bowMaterial: {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  color: Pink
   GiftMaterialZones:
   - {fileID: 7414999178688569318}
   BowMaterialZones:
@@ -357,7 +357,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -440,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  - {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -523,7 +523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -606,7 +606,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
