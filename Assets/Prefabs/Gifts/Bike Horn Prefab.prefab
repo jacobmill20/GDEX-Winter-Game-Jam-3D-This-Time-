@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9125873511323170438}
   m_Layer: 3
-  m_Name: Gift Prefab
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
+  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -453,9 +453,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: Bike Horn
-  giftMaterial: {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
+  giftMaterial: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
   bowMaterial: {fileID: 2100000, guid: 8de24dbacc7a9ad4c9fc7df7dca8d8a0, type: 2}
-  color: Orange
+  color: Yellow
   GiftMaterialZones:
   - {fileID: 3708960544347577477}
   BowMaterialZones:

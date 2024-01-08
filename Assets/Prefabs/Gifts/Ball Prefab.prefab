@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  - {fileID: 2100000, guid: fcd314ff771b93146abde5a4b2c18251, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,7 +234,7 @@ Animator:
   m_GameObject: {fileID: 1976700027481040376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 32d03574fecb7c745afd1ffbb259e321, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6544d3c32a84c9142b6f926c6c897ea7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -386,9 +386,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: Ball
-  giftMaterial: {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  giftMaterial: {fileID: 2100000, guid: fcd314ff771b93146abde5a4b2c18251, type: 2}
   bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
-  color: Pink
+  color: Green
   GiftMaterialZones:
   - {fileID: 1278681160419182781}
   BowMaterialZones:
@@ -519,7 +519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2855357124164559289}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

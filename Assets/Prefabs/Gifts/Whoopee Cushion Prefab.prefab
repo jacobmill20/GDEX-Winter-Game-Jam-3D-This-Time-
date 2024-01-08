@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 643690221508797793}
   m_Layer: 3
-  m_Name: Gift Prefab
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,9 +287,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: Whoopee
-  giftMaterial: {fileID: 2100000, guid: d98e9cf7f4adb0e44ae44f48cb3aab5a, type: 2}
+  giftMaterial: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
   bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
-  color: Purple
+  color: Yellow
   GiftMaterialZones:
   - {fileID: 7414999178688569318}
   BowMaterialZones:
@@ -440,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d98e9cf7f4adb0e44ae44f48cb3aab5a, type: 2}
+  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

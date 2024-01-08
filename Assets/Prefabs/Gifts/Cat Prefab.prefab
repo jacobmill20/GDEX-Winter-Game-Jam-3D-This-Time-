@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTag: {fileID: 0}
   correctTag: {fileID: 0}
+  isColorGift: 0
   giftName: Cat
   giftMaterial: {fileID: 0}
   bowMaterial: {fileID: 0}
@@ -435,7 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111507712591084819}
   m_Layer: 3
-  m_Name: Gift Prefab
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

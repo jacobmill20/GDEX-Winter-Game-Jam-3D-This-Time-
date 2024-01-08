@@ -1,11 +1,16 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    
     public Canvas canvas;
+    public AudioClip correct;
+    public AudioClip incorrect;
 
     public List<GameObject> gifts;
     //I was gonna use a dictionary for this but apparently they cant be serialized
@@ -24,8 +29,19 @@ public class GameManager : MonoBehaviour
     private List<TagStuct> finalTagList = new List<TagStuct>();
 
     private GameObject[] giftClones = new GameObject[3];
+    private GameObject[] tagClones = new GameObject[3];
+    private GameObject[] letterClones = new GameObject[3];
 
-    // Start is called before the first frame update
+    private AudioSource myAudio;
+
+
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+
+        myAudio = GetComponent<AudioSource>();
+    }
     void Start()
     {
         /*
@@ -33,7 +49,7 @@ public class GameManager : MonoBehaviour
             Generate the random and sets values in place before the game starts
             Possibly do black screen for a couple seconds to allow the game to process and begin
          */
-        GeneratePresents();
+        StartCoroutine("GeneratePresents");
     }
 
     // Update is called once per frame
@@ -42,20 +58,21 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void GeneratePresents()
+    IEnumerator GeneratePresents()
     {
-        /*
-         Use random to pick a tag from the list
-         Also use random to pick correct color for gift from list
-         */
-
+        ClearLists();
         RandomizeGifts();
         AssignTags();
         PlaceGifts();
+        yield return null;
+    }
 
-
-        //Start Game
-
+    private void ClearLists()
+    {
+        randomizationGiftList.Clear();
+        finalGiftList.Clear();
+        randomizationTagList.Clear();
+        finalTagList.Clear();
     }
 
     private void RandomizeGifts()
@@ -77,7 +94,7 @@ public class GameManager : MonoBehaviour
             //Randomize color
             randColor = UnityEngine.Random.Range(0, giftMaterials.Count);
             randBow = UnityEngine.Random.Range(0, bowMaterials.Count);
-            if (!selectedColors.Contains(giftMaterials[randColor].material)) //we never put anything in selected colors so why the if? this will always be true. Even if it were false it would just skip assigning color entirely for that gift
+            if (!selectedColors.Contains(giftMaterials[randColor].material))
             {
                 gift.GetComponent<GiftScript>().color = giftMaterials[randColor].color;
                 gift.GetComponent<GiftScript>().giftMaterial = giftMaterials[randColor].material;
@@ -98,9 +115,9 @@ public class GameManager : MonoBehaviour
         Shuffle();
 
 
-        giftClones[0] = Instantiate(finalGiftList[0], new Vector3(-20f, 0f, -3f), Quaternion.identity);
-        giftClones[1] = Instantiate(finalGiftList[1], new Vector3(0f, 0f, -3f), Quaternion.identity);
-        giftClones[2] = Instantiate(finalGiftList[2], new Vector3(20f, 0f, -3f), Quaternion.identity);
+        giftClones[0] = Instantiate(finalGiftList[0], new Vector3(-11.51f, 0f, -0.76f), Quaternion.identity);
+        giftClones[1] = Instantiate(finalGiftList[1], new Vector3(9.09f, 0f, 0.42f), Quaternion.identity);
+        giftClones[2] = Instantiate(finalGiftList[2], new Vector3(-9.57f, 0f, -13.97f), Quaternion.identity);
 
         //I know this part is scuf
         //fixing placement for certain items
@@ -135,8 +152,9 @@ public class GameManager : MonoBehaviour
             RandomizeLetter(i);
 
             //Assign correct tag. Must instantiate first becase prefab =/= clone of prefab
-            GameObject clone = Instantiate(finalTagList[i].tag, new Vector3(-20f + 20f * i, 0f, -10f), Quaternion.Euler(0f, 180f, 0f));
+            GameObject clone = Instantiate(finalTagList[i].tag, new Vector3(5f, 0f, -10f - 3f * i), Quaternion.Euler(0f, 180f, 0f));
             finalGiftList[i].GetComponent<GiftScript>().correctTag = clone;
+            tagClones[i] = clone;
         }
     }
 
@@ -144,6 +162,7 @@ public class GameManager : MonoBehaviour
     {
         //Instantiate
         GameObject letter = Instantiate(finalTagList[idx].letter, canvas.transform);
+        letterClones[idx] = letter;
 
         //Get text children
         Text[] list = letter.GetComponentsInChildren<Text>();
@@ -211,28 +230,39 @@ public class GameManager : MonoBehaviour
 
     public void CheckCorrect()
     {
+        StartCoroutine("EndRound");
+    }
+
+    public void DestroyTags()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Destroy(tagClones[i]);
+            Destroy(letterClones[i]);
+        }
+    }
+
+    IEnumerator EndRound()
+    {
         //Check each gift to see if it is correct
         foreach (GameObject gift in giftClones)
         {
-            if (!gift.GetComponent<GiftScript>().IsCorrect())
-            {
-                Bad();
-                return;
-            }
-
+            gift.GetComponent<Animator>().SetTrigger("Shake");
+            myAudio.clip = (gift.GetComponent<GiftScript>().IsCorrect()) ? correct : incorrect;
+            myAudio.Play();
+            yield return new WaitForSeconds(0.5f);
         }
 
-        Good();
-    }
+        //gifts go bye bye
+        for(int i = 0;i < giftClones.Length;i++)
+            giftClones[i].GetComponent<GiftScript>().MakeLikeATree();
 
-    private void Bad()
-    {
-        Debug.Log("Incorrect");
-    }
+        yield return new WaitForSeconds(1);
 
-    private void Good()
-    {
-        Debug.Log("Correct");
+        DestroyTags();
+
+        //Start again
+        StartCoroutine(GeneratePresents());
     }
 }
 

@@ -48,13 +48,19 @@ public class GiftScript : MonoBehaviour
         return false;
     }
 
-    public void PlayAudio()
-    {
-        myAudio.Play();
-    }
-
     public void ShakeAnim()
     {
         myAnim.SetTrigger("Shake");
+        myAudio.Play();
+    }
+
+    public void MakeLikeATree()
+    {
+        myAnim.SetTrigger("End");
+    }
+
+    public void KillMe()
+    {
+        Destroy(gameObject);
     }
 }

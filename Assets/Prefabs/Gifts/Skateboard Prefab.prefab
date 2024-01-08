@@ -265,7 +265,7 @@ Animator:
   m_GameObject: {fileID: 6889629597017041111}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bbbe9d35043c220488f834a32d20c202, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6544d3c32a84c9142b6f926c6c897ea7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -518,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5470306705420292488}
   m_Layer: 0
-  m_Name: Skateboard
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

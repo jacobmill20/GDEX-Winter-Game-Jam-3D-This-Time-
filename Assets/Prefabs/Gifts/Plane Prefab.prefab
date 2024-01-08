@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2182000651560357881}
   m_Layer: 0
-  m_Name: newPlane
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
+  - {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +216,7 @@ Animator:
   m_GameObject: {fileID: 8623001207322718696}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c041e97c1aabc841b786e8b14635546, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6544d3c32a84c9142b6f926c6c897ea7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -368,9 +368,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: Plane
-  giftMaterial: {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
-  bowMaterial: {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
-  color: Orange
+  giftMaterial: {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  color: Pink
   GiftMaterialZones:
   - {fileID: 3554586702129510311}
   BowMaterialZones:
@@ -436,7 +436,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

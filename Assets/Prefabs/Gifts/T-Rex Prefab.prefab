@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
+  - {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -469,9 +469,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 0
   giftName: T-Rex
-  giftMaterial: {fileID: 2100000, guid: fccda0db5be302f418b9026cb78121ab, type: 2}
-  bowMaterial: {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
-  color: Yellow
+  giftMaterial: {fileID: 2100000, guid: 243dfec95e961414f9ceb162f8e34a55, type: 2}
+  bowMaterial: {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
+  color: Pink
   GiftMaterialZones:
   - {fileID: 2219740911322045306}
   BowMaterialZones:
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606534094933243733}
   m_Layer: 3
-  m_Name: Gift Prefab
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef293b830b6925d438f0484c0d74f1ea, type: 2}
+  - {fileID: 2100000, guid: 1eb61a84072d75b4999cd19bea67b110, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

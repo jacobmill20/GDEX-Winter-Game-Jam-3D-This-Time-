@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4561842243604482049, guid: 54e3ced3effd20f4d9c263e49cc63487, type: 3}
+  - {fileID: 2100000, guid: 8de24dbacc7a9ad4c9fc7df7dca8d8a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5343137239840083528}
   m_Layer: 3
-  m_Name: Gift Prefab
+  m_Name: Gift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4561842243604482049, guid: 54e3ced3effd20f4d9c263e49cc63487, type: 3}
+  - {fileID: 2100000, guid: 8de24dbacc7a9ad4c9fc7df7dca8d8a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -453,9 +453,9 @@ MonoBehaviour:
   correctTag: {fileID: 0}
   isColorGift: 1
   giftName: Pencils
-  giftMaterial: {fileID: 0}
-  bowMaterial: {fileID: 0}
-  color: 
+  giftMaterial: {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
+  bowMaterial: {fileID: 2100000, guid: 8de24dbacc7a9ad4c9fc7df7dca8d8a0, type: 2}
+  color: Orange
   GiftMaterialZones:
   - {fileID: 8083874978094163087}
   BowMaterialZones:
@@ -523,7 +523,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4561842243604482049, guid: 54e3ced3effd20f4d9c263e49cc63487, type: 3}
+  - {fileID: 2100000, guid: 8de24dbacc7a9ad4c9fc7df7dca8d8a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -606,7 +606,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -348030118544642184, guid: 54e3ced3effd20f4d9c263e49cc63487, type: 3}
+  - {fileID: 2100000, guid: ac6a0e2fb49b3944096080ba3dcd74f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
