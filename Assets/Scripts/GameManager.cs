@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
     public Button butt1;
     public Button butt2;
 
+    public GameObject DuringGameUI;
+    public GameObject EndGameUI;
+    public TMP_Text EndGameText;
+
     private List<GameObject> randomizationGiftList = new List<GameObject>();
     private List<GameObject> finalGiftList = new List<GameObject>();
 
@@ -45,13 +50,15 @@ public class GameManager : MonoBehaviour
 
     private float timeLeft;
     private int score;
-
+    private int totalGifts;
     private void Awake()
     {
         if(instance == null)
             instance = this;
 
         myAudio = GetComponent<AudioSource>();
+        DuringGameUI.SetActive(true);
+        EndGameUI.SetActive(false);
     }
     void Start()
     {
@@ -79,6 +86,7 @@ public class GameManager : MonoBehaviour
         if(timeLeft <= 0)
         {
             //Lose game
+            EndGame();
         }
     }
 
@@ -136,6 +144,8 @@ public class GameManager : MonoBehaviour
         giftClones[0] = Instantiate(finalGiftList[0], new Vector3(-11.51f, 0f, -0.76f), Quaternion.identity);
         giftClones[1] = Instantiate(finalGiftList[1], new Vector3(9.09f, 0f, 0.42f), Quaternion.identity);
         giftClones[2] = Instantiate(finalGiftList[2], new Vector3(-9.57f, 0f, -13.97f), Quaternion.identity);
+
+        totalGifts += 3;
     }
 
     private void AssignTags()
@@ -284,31 +294,40 @@ public class GameManager : MonoBehaviour
 
     public void ProgressPage()
     {
-        letterClones[pageIdx].SetActive(false);
-        letterClones[++pageIdx].SetActive(true);
+            letterClones[pageIdx].SetActive(false);
+            letterClones[++pageIdx].SetActive(true);
 
-        if(pageIdx + 2 > letterClones.Length)
-            butt2.interactable = false;
-        else 
-            butt1.interactable = true;
+            if (pageIdx + 2 > letterClones.Length)
+                butt2.interactable = false;
+            else
+                butt1.interactable = true;
 
-        myAudio.clip = pageTurn;
-        myAudio.Play();
+            myAudio.clip = pageTurn;
+            myAudio.Play();
     }
 
     public void RegressPage()
     {
-        letterClones[pageIdx].SetActive(false);
-        letterClones[--pageIdx].SetActive(true);
+            letterClones[pageIdx].SetActive(false);
+            letterClones[--pageIdx].SetActive(true);
 
-        if (pageIdx - 1 < 0)
-            butt1.interactable = false;
-        else
-            butt2.interactable = true;
+            if (pageIdx - 1 < 0)
+                butt1.interactable = false;
+            else
+                butt2.interactable = true;
 
-        myAudio.clip = pageTurn;
+            myAudio.clip = pageTurn;
         myAudio.Play();
     }
+
+    private void EndGame()
+    {
+        string endText = "Congratulations! You helped Santa sort " + score + " / " + totalGifts + " presents correctly";
+        DuringGameUI.SetActive(false);
+        EndGameUI.SetActive(true);
+        EndGameText.SetText(endText);
+    }
+    
 }
 
 //Creating this since we cant serialize Dictonaries for some reason
